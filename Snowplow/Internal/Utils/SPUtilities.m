@@ -109,8 +109,8 @@
     SEL isAdvertisingTrackingEnabledSelector = NSSelectorFromString(@"isAdvertisingTrackingEnabled");
     if (![sharedManager respondsToSelector:isAdvertisingTrackingEnabledSelector]) return nil;
 
-    BOOL isAdvertisingTrackingEnabled = ((BOOL (*)(id, SEL))[sharedManager methodForSelector:isAdvertisingTrackingEnabledSelector])(sharedManager, isAdvertisingTrackingEnabledSelector);
-    if (!isAdvertisingTrackingEnabled) return nil;
+//    BOOL isAdvertisingTrackingEnabled = ((BOOL (*)(id, SEL))[sharedManager methodForSelector:isAdvertisingTrackingEnabledSelector])(sharedManager, isAdvertisingTrackingEnabledSelector);
+//    if (!isAdvertisingTrackingEnabled) return nil;
 
     SEL advertisingIdentifierSelector = NSSelectorFromString(@"advertisingIdentifier");
     if (![sharedManager respondsToSelector:advertisingIdentifierSelector]) return nil;
