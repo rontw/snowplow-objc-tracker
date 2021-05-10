@@ -19,6 +19,7 @@ let package = Package(
             path: "./Snowplow",
             publicHeadersPath: "./include",
             cSettings: [
+                .define("SNOWPLOW_IDFA_ENABLED"),
                 .headerSearchPath("./Internal/Configurations"),
                 .headerSearchPath("./Internal/Subject"),
                 .headerSearchPath("./Internal/GDPR"),
@@ -34,11 +35,7 @@ let package = Package(
                 .headerSearchPath("./Internal/Emitter"),
                 .headerSearchPath("./Internal/Events"),
                 .headerSearchPath("./Internal"),
-            ],
-            swiftSettings: [
-                .define("SNOWPLOW_IDFA_ENABLED")
             ]),
-        
         .testTarget(
             name: "Snowplow-iOSTests",
             dependencies: ["SnowplowTracker"],
