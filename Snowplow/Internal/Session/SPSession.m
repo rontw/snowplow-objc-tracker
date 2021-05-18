@@ -256,7 +256,7 @@ NSString * const kFilenameExt = @"dict";
 }
 
 - (BOOL)shouldUpdateSession {
-    if (_isNewSession) {
+    if (_isNewSession || _currentSessionId == nil) {
         return YES;
     }
     long long lastAccess = self.lastSessionCheck.longLongValue;
