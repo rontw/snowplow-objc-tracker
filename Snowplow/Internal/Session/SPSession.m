@@ -117,7 +117,8 @@ NSString * const kFilenameExt = @"dict";
         } else {
             _userId = [SPUtilities getUUIDString];
             _currentSessionId = [SPUtilities getUUIDString];
-            _sessionIndex = 0;
+            _sessionIndex = -1;
+            updateSessionWithEventId([SPUtilities getUUIDString]);
         }
         
         self.lastSessionCheck = [SPUtilities getTimestamp];
