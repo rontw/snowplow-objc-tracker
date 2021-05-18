@@ -116,9 +116,9 @@ NSString * const kFilenameExt = @"dict";
             _sessionIndex = [[storedSessionDict valueForKey:kSPSessionIndex] intValue];
         } else {
             _userId = [SPUtilities getUUIDString];
-            _currentSessionId = [SPUtilities getUUIDString];
+            _currentSessionId = nil;
             _sessionIndex = -1;
-            [self updateSessionWithEventId:[SPUtilities getUUIDString]];
+            _isNewSession = YES;
         }
         
         self.lastSessionCheck = [SPUtilities getTimestamp];
@@ -257,7 +257,7 @@ NSString * const kFilenameExt = @"dict";
 }
 
 - (BOOL)shouldUpdateSession {
-    if (_isNewSession || _currentSessionId == nil) {
+    if (_isNewSession) {
         return YES;
     }
     long long lastAccess = self.lastSessionCheck.longLongValue;
