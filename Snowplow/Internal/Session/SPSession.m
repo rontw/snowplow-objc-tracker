@@ -43,6 +43,8 @@
 
 @end
 
+#define ENABLE_NEW_SESSION 0
+
 @implementation SPSession {
     NSInteger   _foregroundTimeout;
     NSInteger   _backgroundTimeout;
@@ -81,7 +83,10 @@ NSString * const kFilenameExt = @"dict";
         _foregroundTimeout = foregroundTimeout * 1000;
         _backgroundTimeout = backgroundTimeout * 1000;
         _inBackground = NO;
+
+#if ENABLE_NEW_SESSION
         _isNewSession = YES;
+#endif
         _sessionStorage = @"LOCAL_STORAGE";
         self.sessionFilename = kLegacyFilename;
         self.tracker = tracker;
@@ -145,7 +150,9 @@ NSString * const kFilenameExt = @"dict";
 
 - (void)startNewSession {
     // TODO: when the sesssion has been renewed programmatically, it has to be reported in the session context to the collector.
-    _isNewSession = YES;
+#if ENABLE_NEW_SESSION
+        _isNewSession = YES;
+#endif
 }
 
 - (void) setForegroundTimeout:(NSInteger)foregroundTimeout {
