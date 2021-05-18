@@ -106,9 +106,6 @@
 
     id sharedManager = ((id (*)(id, SEL))[ASIdentifierManagerClass methodForSelector:sharedManagerSelector])(ASIdentifierManagerClass, sharedManagerSelector);
 
-    SEL isAdvertisingTrackingEnabledSelector = NSSelectorFromString(@"isAdvertisingTrackingEnabled");
-    if (![sharedManager respondsToSelector:isAdvertisingTrackingEnabledSelector]) return nil;
-
     SEL advertisingIdentifierSelector = NSSelectorFromString(@"advertisingIdentifier");
     if (![sharedManager respondsToSelector:advertisingIdentifierSelector]) return nil;
 
