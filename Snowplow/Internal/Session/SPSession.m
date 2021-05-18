@@ -116,8 +116,8 @@ NSString * const kFilenameExt = @"dict";
             _sessionIndex = [[storedSessionDict valueForKey:kSPSessionIndex] intValue];
         } else {
             _userId = [SPUtilities getUUIDString];
-            _currentSessionId = nil;
-            _sessionIndex = -1;
+            _currentSessionId = [SPUtilities getUUIDString];
+            _sessionIndex = 0;
         }
         
         self.lastSessionCheck = [SPUtilities getTimestamp];
