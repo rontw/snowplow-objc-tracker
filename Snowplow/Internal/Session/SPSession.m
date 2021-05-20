@@ -292,7 +292,7 @@ NSString * const kFilenameExt = @"dict";
     [self writeSessionToFile];
 }
 
-- (void)updateSessionWithPreviousSessionIdLocalStorage() {
+- (void)updateSessionWithPreviousSessionIdLocalStorage {
     NSMutableDictionary *newSessionDict = [_sessionDict mutableCopy];
     [newSessionDict setObject:(_previousSessionId != nil ? _previousSessionId : [NSNull null]) forKey:kSPSessionPreviousId];
     [newSessionDict setObject:_sessionStorage forKey:kSPSessionStorage];
