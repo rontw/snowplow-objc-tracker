@@ -169,6 +169,8 @@ NSString * const kFilenameExt = @"dict";
 }
 
 - (NSDictionary *) getSessionDictWithEventId:(NSString *)eventId {
+    [self updateSessionWithPreviousSessionIdLocalStorage];
+
     if (!_isSessionCheckerEnabled) {
         return [_sessionDict copy];
     }
