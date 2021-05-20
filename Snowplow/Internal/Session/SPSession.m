@@ -115,6 +115,7 @@ NSString * const kFilenameExt = @"dict";
             _currentSessionId = [storedSessionDict valueForKey:kSPSessionId];
             _sessionIndex = [[storedSessionDict valueForKey:kSPSessionIndex] intValue];
             _sessionDict = [storedSessionDict copy];
+            [self updateSessionWithEventId:[SPUtilities getUUIDString]];
         } else {
             _userId = [SPUtilities getUUIDString];
             _currentSessionId = nil;
