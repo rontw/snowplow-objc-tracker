@@ -116,8 +116,8 @@ NSString * const kFilenameExt = @"dict";
             _sessionIndex = [[storedSessionDict valueForKey:kSPSessionIndex] intValue];
             _sessionDict = [storedSessionDict copy];
 
-            [_sessionDict setObject:(_previousSessionId != nil ? _previousSessionId : [NSNull null]) forKey:kSPSessionPreviousId];
-            [_sessionDict setObject:_sessionStorage forKey:kSPSessionStorage];
+            [self updateSessionWithPreviousSessionIdLocalStorage];
+
         } else {
             _userId = [SPUtilities getUUIDString];
             _currentSessionId = nil;
@@ -290,6 +290,13 @@ NSString * const kFilenameExt = @"dict";
     _sessionDict = [newSessionDict copy];
 
     [self writeSessionToFile];
+}
+
+- (void)updateSessionWithPreviousSessionIdLocalStorage() {
+    NSMutableDictionary *newSessionDict = [_sessionDict mutableCopy];
+    [newSessionDict setObject:(_previousSessionId != nil ? _previousSessionId : [NSNull null]) forKey:kSPSessionPreviousId];
+    [newSessionDict setObject:_sessionStorage forKey:kSPSessionStorage];
+    _sessionDict = [newSessionDict copy];
 }
 
 - (void) updateInBackground {
