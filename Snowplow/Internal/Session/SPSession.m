@@ -116,7 +116,7 @@ NSString * const kFilenameExt = @"dict";
             _sessionIndex = [[storedSessionDict valueForKey:kSPSessionIndex] intValue];
             _sessionDict = [storedSessionDict copy];
 
-            [self updateSessionWithPreviousSessionIdLocalStorage];
+            //[self updateSessionWithPreviousSessionIdLocalStorage];
 
         } else {
             _userId = [SPUtilities getUUIDString];
@@ -169,7 +169,7 @@ NSString * const kFilenameExt = @"dict";
 }
 
 - (NSDictionary *) getSessionDictWithEventId:(NSString *)eventId {
-    [self updateSessionWithPreviousSessionIdLocalStorage];
+    //[self updateSessionWithPreviousSessionIdLocalStorage];
 
     if (!_isSessionCheckerEnabled) {
         return [_sessionDict copy];
@@ -228,8 +228,8 @@ NSString * const kFilenameExt = @"dict";
 - (BOOL) writeSessionToFile {
     NSError *error = nil;
     NSMutableDictionary *sessionDict = [_sessionDict mutableCopy];
-    [sessionDict removeObjectForKey:kSPSessionPreviousId];
-    [sessionDict removeObjectForKey:kSPSessionStorage];
+//    [sessionDict removeObjectForKey:kSPSessionPreviousId];
+//    [sessionDict removeObjectForKey:kSPSessionStorage];
     
     BOOL result = NO;
     if (@available(iOS 11.0, macOS 10.13, watchOS 4.0, *)) {
