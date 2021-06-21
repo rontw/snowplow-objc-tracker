@@ -208,6 +208,10 @@
     [_platformDict addValueToPayload:[SPUtilities getNetworkTechnology] forKey:kSPMobileNetworkTech];
 }
 
+- (void) updateMobileDict {
+    [self setMobileDict];
+}
+
 // MARK: - GeoLocation Dictionary
 
 - (void) setGeoDict {
