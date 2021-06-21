@@ -207,5 +207,9 @@
     return [self.subject geoTimestamp];
 }
 
+// Added to support sending IDFA after ATT opt-in
+- (void) updateMobileDict {
+    [self.subject setMobileDict];
+}
 @end
 

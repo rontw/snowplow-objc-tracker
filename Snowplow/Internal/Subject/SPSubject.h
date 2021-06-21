@@ -244,8 +244,7 @@ NS_SWIFT_NAME(Subject)
 - (void) setGeoTimestamp:(NSNumber *)timestamp;
 - (NSNumber *)geoTimestamp;
 
-// Added to support sending IDFA after ATT opt-in
-- (void) updateMobileDict;
+- (void) setMobileDict;
 
 @end
 
