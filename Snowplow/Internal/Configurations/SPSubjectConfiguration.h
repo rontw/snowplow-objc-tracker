@@ -130,9 +130,6 @@ NS_SWIFT_NAME(SubjectConfigurationProtocol)
  */
 @property (nullable) NSNumber *geoTimestamp;
 
-// MAT-785: Added to allow updating IDFA after ATT opt-in
-- (void) updateMobileDict;
-
 @end
 
 /**

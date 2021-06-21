@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(SubjectController)
 @protocol SPSubjectController <SPSubjectConfigurationProtocol>
 
+// MAT-785: Added to allow updating IDFA after ATT opt-in
+- (void) updateMobileDict;
+
 @end
 
 NS_ASSUME_NONNULL_END
